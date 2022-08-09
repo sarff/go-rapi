@@ -59,7 +59,7 @@ func NewHttpRequest(reqType string, reqUrl string, postData string, requstHeader
 		return nil, err
 	}
 
-	if resp.StatusCode != 200 {
+	if resp.StatusCode >= 300 || resp.StatusCode <= 199 {
 		return nil, errors.New(fmt.Sprintf("HttpStatusCode:%d ,Desc:%s", resp.StatusCode, string(bodyData)))
 	}
 
