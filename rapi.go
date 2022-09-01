@@ -30,6 +30,16 @@ func HttpPostBody(reqUrl string, postData map[string]string, headers map[string]
 	return NewHttpRequest("POST", reqUrl, string(data), headers)
 }
 
+func HttpPutBody(reqUrl string, postData map[string]string, headers map[string]string) ([]byte, error) {
+	if headers == nil {
+		headers = map[string]string{}
+	}
+
+	headers["Content-Type"] = "application/json"
+	data, _ := json.Marshal(postData)
+	return NewHttpRequest("PUT", reqUrl, string(data), headers)
+}
+
 func NewHttpRequest(reqType string, reqUrl string, postData string, requstHeaders map[string]string) ([]byte, error) {
 	fmt.Println(fmt.Sprintf("%s request url: %s", reqType, reqUrl))
 	if postData != "" {
