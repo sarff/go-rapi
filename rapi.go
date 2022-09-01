@@ -30,7 +30,7 @@ func HttpPostBody(reqUrl string, postData map[string]string, headers map[string]
 	return NewHttpRequest("POST", reqUrl, string(data), headers)
 }
 
-func HttpPutBody(reqUrl string, postData map[string]string, headers map[string]string) ([]byte, error) {
+func HttpPutBody(reqUrl string, postData map[string]interface{}, headers map[string]string) ([]byte, error) {
 	if headers == nil {
 		headers = map[string]string{}
 	}
