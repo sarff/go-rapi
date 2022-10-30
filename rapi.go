@@ -20,7 +20,7 @@ func HttpPostForm(reqUrl string, postData url.Values, headers map[string]string)
 
 }
 
-func HttpPostBody(reqUrl string, postData map[string]string, headers map[string]string) ([]byte, error) {
+func HttpPostBody(reqUrl string, postData map[string]any, headers map[string]string) ([]byte, error) {
 	if headers == nil {
 		headers = map[string]string{}
 	}
